@@ -778,9 +778,7 @@ button {
 }
 
 .hero-name .name-last {
-  align-self: flex-start;
-  margin-inline-start: clamp(3rem, 18vw, 16rem);
-  margin-inline-end: 0;
+  margin-inline-start: clamp(1.75rem, 10vw, 4rem);
 }
 
 .hero-name::before {
