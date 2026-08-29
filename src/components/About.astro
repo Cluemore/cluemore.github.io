@@ -1,0 +1,81 @@
+---
+import { profile } from "../data/profile";
+
+const { about } = profile;
+---
+
+<section class="about-section" id="about" aria-labelledby="about-title">
+  <div class="about-shell">
+    <div class="about-topline">
+      <p>02 / About</p>
+      <p>Profile / Applied Data Science</p>
+    </div>
+
+    <div class="about-layout">
+      <header class="about-heading">
+        <p class="about-kicker">{about.eyebrow}</p>
+        <h2 class="about-title" id="about-title">
+          {about.headline.map((line, index) => (
+            <span class:list={{ "about-title-emphasis": index > 1 }}>{line}</span>
+          ))}
+        </h2>
+      </header>
+
+      <figure class="about-portrait">
+        <div class="about-portrait-frame">
+          <img
+            src="/shravani-patil-about.webp"
+            width="720"
+            height="1280"
+            loading="lazy"
+            decoding="async"
+            alt="Shravani Patil in a professional setting"
+          />
+          <span class="about-portrait-index" aria-hidden="true">SP / 02</span>
+        </div>
+        <figcaption>
+          <span>Shravani Patil</span>
+          <span>Data Science · ML · Analytics</span>
+        </figcaption>
+      </figure>
+
+      <div class="about-copy">
+        <p class="about-lede">{about.introduction}</p>
+        <p>{about.work}</p>
+        <p>{about.communication}</p>
+
+        <dl class="about-credentials" aria-label="Academic profile">
+          <div>
+            <dt>Studying</dt>
+            <dd>{about.degree}</dd>
+          </div>
+          <div>
+            <dt>Academic</dt>
+            <dd>{about.academic}</dd>
+          </div>
+          <div>
+            <dt>Graduating</dt>
+            <dd>{about.graduating}</dd>
+          </div>
+        </dl>
+      </div>
+
+      <aside class="about-focus" aria-labelledby="about-focus-title">
+        <h3 id="about-focus-title">Working across</h3>
+        <ol>
+          {about.focus.map((item, index) => (
+            <li>
+              <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ol>
+      </aside>
+    </div>
+
+    <div class="about-availability">
+      <span class="about-status-dot" aria-hidden="true"></span>
+      <p><span>Currently</span>{about.availability}</p>
+    </div>
+  </div>
+</section>

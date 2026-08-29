@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import About from "../components/About.astro";
 import ContactStrip from "../components/ContactStrip.astro";
 import Hero from "../components/Hero.astro";
 
@@ -9,6 +10,9 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-  <Hero />
+  <main id="main-content">
+    <Hero />
+    <About />
+  </main>
   <ContactStrip />
 </BaseLayout>
