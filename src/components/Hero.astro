@@ -5,6 +5,15 @@ const roles = profile.roles.join(" · ");
 const words = JSON.stringify(profile.morphWords);
 ---
 
+{profile.about.showTopAvailability && (
+  <aside class="availability-banner" aria-label="Internship availability">
+    <div class="availability-banner-inner">
+      <span aria-hidden="true"></span>
+      <p>{profile.about.availability}</p>
+    </div>
+  </aside>
+)}
+
 <header class="site-header" aria-label="Primary navigation">
   <a class="wordmark" href="#top" aria-label="Shravani Patil, back to top">
     <span>SP</span>
@@ -87,7 +96,6 @@ const words = JSON.stringify(profile.morphWords);
       <circle class="node node-four" cx="102" cy="119" r="4" />
     </svg>
 
-  <a class="scroll-cue" href="#about">Explore ↓</a>
 </section>
 
 <script>

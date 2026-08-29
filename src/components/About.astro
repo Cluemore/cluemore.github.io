@@ -44,6 +44,18 @@ const { about } = profile;
         <p>{about.work}</p>
         <p>{about.communication}</p>
 
+        <aside class="about-focus" aria-labelledby="about-focus-title">
+          <h3 id="about-focus-title">Working across</h3>
+          <ol>
+            {about.focus.map((item, index) => (
+              <li>
+                <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ol>
+        </aside>
+
         <dl class="about-credentials" aria-label="Academic profile">
           <div>
             <dt>Studying</dt>
@@ -59,18 +71,6 @@ const { about } = profile;
           </div>
         </dl>
       </div>
-
-      <aside class="about-focus" aria-labelledby="about-focus-title">
-        <h3 id="about-focus-title">Working across</h3>
-        <ol>
-          {about.focus.map((item, index) => (
-            <li>
-              <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ol>
-      </aside>
     </div>
 
     <div class="about-availability">

@@ -17,8 +17,9 @@ export const profile = {
     degree: "B.E. Computer Science (Data Science)",
     academic: "9.2 / 10 CGPA",
     graduating: "Class of 2027",
+    showTopAvailability: true,
     availability:
-      "Open to six-month Data Science, Machine Learning, AI, and Analytics internships starting January 2027.",
+      "Open to six-month Data Science, Machine Learning, AI, and Analytics internships starting December 2026.",
     focus: [
       "Predictive machine learning",
       "NLP and applied AI",

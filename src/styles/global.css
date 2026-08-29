@@ -11,6 +11,7 @@
   --page-gutter: clamp(1.25rem, 4.5vw, 5rem);
   --content-max: 90rem;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --availability-height: 2.875rem;
 }
 
 *,
@@ -105,6 +106,47 @@ button {
   transform: translateY(0);
 }
 
+.availability-banner {
+  position: absolute;
+  z-index: 12;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: var(--availability-height);
+  padding-inline: var(--page-gutter);
+  align-items: center;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.availability-banner-inner {
+  display: flex;
+  width: min(100%, var(--content-max));
+  margin-inline: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.availability-banner-inner > span {
+  width: 0.55rem;
+  height: 0.55rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--signature);
+  box-shadow: 0 0 0 0.3rem rgba(242, 106, 46, 0.14);
+}
+
+.availability-banner p {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  line-height: 1.4;
+  text-align: center;
+}
+
 .site-header {
   position: absolute;
   z-index: 10;
@@ -117,6 +159,10 @@ button {
   align-items: flex-start;
   justify-content: space-between;
   transform: translateX(-50%);
+}
+
+.availability-banner + .site-header {
+  top: var(--availability-height);
 }
 
 .wordmark {
@@ -171,6 +217,10 @@ button {
   background:
     radial-gradient(circle at 84% 34%, rgba(241, 180, 235, 0.25), transparent 19rem),
     var(--paper);
+}
+
+.availability-banner ~ .hero {
+  padding-top: calc(clamp(7rem, 14vh, 10rem) + var(--availability-height));
 }
 
 .hero::after {
@@ -434,22 +484,6 @@ button {
   fill: var(--interaction);
 }
 
-.scroll-cue {
-  position: absolute;
-  right: var(--page-gutter);
-  bottom: 2rem;
-  display: inline-flex;
-  min-height: 2.75rem;
-  margin: 0;
-  align-items: center;
-  color: var(--ink-soft);
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
 .contact-strip {
   position: relative;
   z-index: 1;
@@ -562,7 +596,13 @@ button {
 
 @media (max-width: 47.99rem) {
   :root {
+    --availability-height: 4.75rem;
     --page-gutter: clamp(1.25rem, 6vw, 2rem);
+  }
+
+  .availability-banner p {
+    font-size: 0.66rem;
+    text-align: left;
   }
 
   .site-header {
@@ -579,6 +619,10 @@ button {
     min-height: 100svh;
     padding-top: 6.5rem;
     padding-bottom: 3.5rem;
+  }
+
+  .availability-banner ~ .hero {
+    padding-top: calc(6.5rem + var(--availability-height));
   }
 
   .hero-meta {
@@ -649,10 +693,6 @@ button {
     opacity: 0.5;
   }
 
-  .scroll-cue {
-    display: none;
-  }
-
   .contact-strip {
     min-height: 70svh;
   }
@@ -678,6 +718,14 @@ button {
 }
 
 @media (max-width: 24rem) {
+  :root {
+    --availability-height: 5rem;
+  }
+
+  .availability-banner p {
+    font-size: 0.63rem;
+  }
+
   .wordmark-index {
     display: none;
   }
@@ -960,8 +1008,7 @@ button {
 }
 
 .about-focus {
-  grid-column: 9 / -1;
-  grid-row: 3;
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
 }
 
 .about-focus h3 {
@@ -1066,10 +1113,6 @@ button {
     margin-top: 0.75rem;
   }
 
-  .about-focus {
-    grid-column: 5 / -1;
-    grid-row: 3;
-  }
 }
 
 @media (max-width: 47.99rem) {
