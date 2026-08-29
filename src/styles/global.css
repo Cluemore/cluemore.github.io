@@ -727,3 +727,124 @@ button {
     stroke: CanvasText;
   }
 }
+
+/* === BEGIN OPTIONAL HERO REFINEMENT ===
+   Bold contact buttons, a closer name composition, and a soft colour wash.
+   To undo all three: remove this entire marked block, including its media rules.
+   To hide only the wash: change --name-wash-opacity below to 0.
+   The original styles above are intentionally unchanged.
+*/
+
+.contact-nav {
+  align-items: center;
+  gap: clamp(0.5rem, 1.2vw, 1rem);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+.contact-nav a {
+  min-width: 4.25rem;
+  min-height: 2.875rem;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 0.25rem;
+  background: var(--ink);
+  color: var(--paper);
+  line-height: 1.2;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.contact-nav a:hover,
+.contact-nav a:focus-visible {
+  border-color: var(--ink);
+  background: var(--interaction);
+  color: var(--ink);
+}
+
+.contact-nav a:focus-visible {
+  outline: 0.1875rem solid var(--ink);
+  outline-offset: 0.25rem;
+}
+
+.hero-name {
+  --name-wash-opacity: 0.65;
+  isolation: isolate;
+}
+
+.hero-name .name-last {
+  align-self: flex-start;
+  margin-inline-start: clamp(3rem, 18vw, 16rem);
+  margin-inline-end: 0;
+}
+
+.hero-name::before {
+  position: absolute;
+  z-index: -1;
+  top: 8%;
+  left: 16%;
+  width: min(65%, 44rem);
+  height: 90%;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 38% 52%, rgba(241, 180, 235, 0.8), transparent 70%),
+    radial-gradient(ellipse at 72% 45%, rgba(243, 108, 198, 0.4), transparent 66%);
+  opacity: var(--name-wash-opacity);
+  filter: blur(1.8rem);
+  transform: rotate(-12deg);
+}
+
+@media (max-width: 47.99rem) {
+  .contact-nav {
+    gap: 0.45rem;
+    font-size: 0.75rem;
+  }
+
+  .contact-nav a {
+    min-width: 0;
+    min-height: 2.75rem;
+    padding: 0.6rem 0.625rem;
+  }
+
+  .hero-name .name-last {
+    margin-inline-start: clamp(1.75rem, 10vw, 4rem);
+  }
+
+  .hero-name::before {
+    top: 12%;
+    left: 10%;
+    width: 80%;
+    filter: blur(1.25rem);
+  }
+}
+
+@media (forced-colors: active) {
+  .contact-nav a {
+    border-color: ButtonText;
+    background: ButtonFace;
+    color: ButtonText;
+  }
+
+  .contact-nav a:hover,
+  .contact-nav a:focus-visible {
+    border-color: Highlight;
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .contact-nav a:focus-visible {
+    outline-color: Highlight;
+  }
+
+  .hero-name::before {
+    display: none;
+  }
+}
+
+/* === END OPTIONAL HERO REFINEMENT === */
